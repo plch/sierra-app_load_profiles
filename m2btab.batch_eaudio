@@ -140,4 +140,6 @@ L|| |7|1|b| |29|n|N|0|bib lvl
 |||0|0| | |0|n|G|0|@link="i:1:#1"
 245||a|0|0|i| |61|n|N|1|%map=("m2bmap.eaudioitype")
 245||a|0|0|i| |79|n|N|1|%map=("m2bmap.eaudioiloc")
+# RV 2018-07-27 added to add status online or 'v' to eaudio
+245||a|0|0|i| |88|n|N|1|%map=("m2bmap.istatusonline")
 245||a|0|0|i| |127|n|N|1|%map=("m2bmap.eaudioiagency")
