@@ -1,0 +1,10 @@
+@HEADER=Load eAudio Bibliographic and Item Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get MARC records using FTS||xftp get %S.eafts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.eafts -o%%.eamarc
+L > LOAD a MARC file||marc2inn -HL -x -fbatch_eaudio -I -i -so %#.eamarc
+M > View MESSAGE log||review -c marc2inn.log
+V > VIEW a MARC file||marcview %#.eamarc
+Q > QUIT||

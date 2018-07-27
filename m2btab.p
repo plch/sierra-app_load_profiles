@@ -1,0 +1,53 @@
+|||0|0| | |0|n|G|0|@main="p"
+|||0|0| | |0|n|G|0|@marc=""
+|||0|0| | |0|n|G|0|@msg="Patron records will be created"
+/^999||z|0|10| | |0|n|G|0|@recs="p"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="_p"
+#if tag "b" is the ov_tag, remove it from the @ov_protect string
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag=" "
+|||0|0| | |0|n|G|0|@ov_action="o"
+|||0|0| | |0|n|G|0|@ov_protect="p=F48-50,54-56,95,96,99,101-105,122-125,158,163,263,268-271,297Vbmxy0123456789=" 
+|||0|0| | |0|n|G|0|@holdsymb=""
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@callnum="nynnn"
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@diac_sub_table="usmarc"
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+#|||0|0| | |0|n|G|0|@busy="n"
+#|||0|0| | |0|n|G|0|@busy_file="busypatrons.pat"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@year_2000="20"
+|||0|0| | |0|n|G|0|@speriod="n"
+#fixed-length fields
+079||a|0|10|p| |163|n|N|0|last circ date
+080||a|0|10|p| |43|n|N|0|exp date
+081||a|0|1|p| |44|n|N|0|pcode1
+082||a|0|1|p| |45|n|N|0|pcode2
+083||a|0|3|p| |46|n|N|0|pcode3
+084||a|0|3|p| |47|n|N|0|ptype
+085||a|0|5|p| |53|n|N|0|home libr
+086||a|0|1|p| |56|n|N|0|mblock
+087||a|0|1|p| |54|n|N|0|pmessage
+088||a|0|4|p| |126|n|N|0|pcode4
+089||a|0|10|p| |51|n|N|0|birth date
+#variable-length fields
+020||+|0|0|p|u|0|n|N|0|id
+030||+|0|0|p|b|0|n|N|0|barcode
+100||+|0|0|p|n|0|n|N|0|name
+220||+|0|0|p|a|0|n|N|0|address1
+225||+|0|0|p|t|0|n|N|0|tel1
+230||+|0|0|p|h|0|n|N|0|address2
+235||+|0|0|p|p|0|n|N|0|tel2
+400||+|0|0|p|m|0|n|N|0|message
+500||+|0|0|p|x|0|n|N|0|note
+550||+|0|0|p|z|0|n|N|0|email
+600||a|0|0|p|=|0|n|N|0|%encryptpin="y"
+856||+|0|0|p|y|0|n|N|0|image

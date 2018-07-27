@@ -1,0 +1,8 @@
+# version 610@(#) m.marcload.load 610.1@(#) 10/21/11 09:34:42 /* GCC-Clean */
+@HEADER=Load Profile Maintenance
+@MAXFILES=30
+@MAXBYTES=60000000
+@DIRNAME=data
+E > Edit m2btab and m2bmaps||tabedit -f -t
+L > Edit m.marcload.local||tabedit -m local
+Q > QUIT||

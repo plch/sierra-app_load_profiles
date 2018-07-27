@@ -1,0 +1,10 @@
+# This file is used to resend previously sent autonotices 
+#
+@HEADER=Auto Notices File Manager
+@MAXFILES=500
+@MAXBYTES=50000000
+@DIRNAME=circ/autonotices
+@EXT=.html.auton
+S > SEND notices file to another system using FTS||xftp put %#.auton
+H > SEND notices file to another system using FTS (.html)||xftp put %#.html
+Q > QUIT||

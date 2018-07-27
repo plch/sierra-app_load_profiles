@@ -1,0 +1,10 @@
+@HEADER=Load Symphony Vendor Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/vendor
+F > Get records using FTS||xftp get %S.vfts
+#Other premapping required, mbrady, 6/8/2012:
+#P > PREPROCESS records loaded via FTS||text2marc -t/iiidb/data/t2mtab.vendor_sym -i%#.vfts -o%%.vmarc
+L > LOAD a MARC file||marc2inn -HL -x -fvendor_sym -i -so %#.vmarc
+V > VIEW a MARC file||marcview %#.vmarc
+Q > QUIT||

@@ -1,0 +1,10 @@
+@HEADER=Load eBook Bibliographic and Item Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get MARC records using FTS||xftp get %S.ebfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.ebfts -o%%.ebmarc
+L > LOAD a MARC file||marc2inn -HL -x -fbatch_ebook -I -i -so %#.ebmarc
+M > View MESSAGE log||review -c marc2inn.log
+V > VIEW a MARC file||marcview %#.ebmarc
+Q > QUIT||

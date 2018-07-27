@@ -1,0 +1,16 @@
+@HEADER=Load Bibliographic Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get MARC records using FTS||xftp get %S.batchfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.batchfts -o%%.batchmarc
+L > LOAD a MARC file||marc2inn -HL -x -fbatch -I -i -so %#.batchmarc
+A > LOAD a MARC file (eAudio)||marc2inn -HL -x -fbatch_eaudio -I -i -so %#.batchmarc
+B > LOAD a MARC file (eBook)||marc2inn -HL -x -fbatch_ebook -I -i -so %#.batchmarc
+H > LOAD a MARC file (eMusic)||marc2inn -HL -x -fbatch_emusic -I -i -so %#.batchmarc
+I > LOAD a MARC file (eVideo)||marc2inn -HL -x -fbatch_evideo -I -i -so %#.batchmarc
+J > LOAD a MARC file (Ezine)||marc2inn -HL -x -fbatch_ezine -I -i -so %#.batchmarc
+S > LOAD a MARC file (SerSol)||marc2inn -HL -x -fbatch_sersol -I -i -so %#.batchmarc
+M > View MESSAGE log||review -c marc2inn.log
+V > VIEW a MARC file||marcview %#.batchmarc
+Q > QUIT||

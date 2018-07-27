@@ -1,0 +1,7 @@
+@HEADER=View circulation migration error files
+@MAXFILES=20
+@MAXBYTES=100000000
+@DIRNAME=marc/circ
+V > VIEW an error file||review -c %#.errors
+O > OUTPUT error files via FTS||xftp -cbinary put %#.errors
+Q > QUIT||

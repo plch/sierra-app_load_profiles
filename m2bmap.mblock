@@ -1,0 +1,7 @@
+@stop_on_map=true
+COLLECTION|-
+DELINQUENT|-
+BLOCKED|-
+BARRED|b
+OK|-
+.*|-

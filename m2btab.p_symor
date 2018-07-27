@@ -1,0 +1,69 @@
+#Symphony patron load table.
+#For outreach patrons only.
+#Created by mbrady, 3/31/2012.
+|||0|0| | |0|n|G|0|@main="p"
+|||0|0| | |0|n|G|0|@marc=""
+|||0|0| | |0|n|G|0|@msg="Patron records will be created"
+/^999||z|0|10| | |0|n|G|0|@recs="p_symor"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="psymphony"
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag=" "
+|||0|0| | |0|n|G|0|@ov_action="o"
+|||0|0| | |0|n|G|0|@ov_protect="p=F48-50,54-56,95,96,99,101-105,122-125,158,163,263,268-271,297Vbmxy0123456789=" 
+|||0|0| | |0|n|G|0|@holdsymb=""
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@callnum="nynnn"
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@diac_sub_table="usmarc"
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+#|||0|0| | |0|n|G|0|@busy="n"
+#|||0|0| | |0|n|G|0|@busy_file="busypatrons.pat"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+#Will load 1920 and earlier birthdates incorrectly, will correct post-load,
+#mbrady, 7/18/12:
+|||0|0| | |0|n|G|0|@year_2000="20"
+|||0|0| | |0|n|G|0|@speriod="n"
+#fixed-length fields
+079||a|0|0|p| |163|n|N|0|%map=("m2bmap.date")
+080||a|0|0|p| |43|n|N|0|%map=("m2bmap.date")
+081||a|0|0|p| |44|n|N|0|%map=("m2bmap.pcode1")
+082||a|0|0|p| |45|n|N|0|pcode2
+083||a|0|0|p| |46|n|N|0|pcode3
+084||a|0|0|p| |47|n|N|0|%map=("m2bmap.ptype")
+085||a|0|0|p| |53|n|N|0|%map=("m2bmap.homelibr")
+085||a|0|0|p| |158|n|N|0|%map=("m2bmap.agency")
+086||a|0|0|p| |56|n|N|0|%map=("m2bmap.mblock")
+087||a|0|0|p| |54|n|N|0|pmessage
+220||d|0|0|p| |126|n|N|0|%map=("m2bmap.pcode4")
+089||a|0|0|p| |51|n|N|0|%map=("m2bmap.date")
+702||a|0|0|p| |48|n|N|0|no of total charges/total checkouts
+705||a|0|0|p| |268|n|N|0|%map=("m2bmap.noticepref")
+#variable-length fields
+030||+|0|0|p|b|0|n|N|0|barcode
+031||+|0|0|p|b|0|n|N|0|%map=("m2bmap.previd")
+089||a|0|0|p|d|0|n|N|0|%map=("m2bmap.birthdate")
+100||+|0|0|p|n|0|n|N|0|%map=("m2bmap.name")
+#Secondary address:
+220||a:b:c|0|0|p|h|0|n|N|0|%map=("m2bmap.address")
+225||+|0|0|p|p|0|n|N|0|tel1
+#Secondary address:
+230||a:b:c|0|0|p|h|0|n|N|0|%map=("m2bmap.address")
+235||+|0|0|p|p|0|n|N|0|tel2
+#Primary address:
+240||a:b:c:d|0|0|p|a|0|n|N|0|%map=("m2bmap.address3")
+225||+|0|0|p|t|0|n|N|0|tel1
+400||+|0|0|p|m|0|n|N|0|message
+500||+|0|0|p|x|0|n|N|0|note
+550||+|0|0|p|z|0|n|N|0|email
+600||a|0|0|p|=|0|n|N|0|%encryptpin="y"
+701||a|0|0|p|r|0|n|N|0|Symphony created date
+703||a|0|0|p|u|0|n|N|0|Group ID / unique ID
+704||a|0|0|p|c|0|n|N|0|Symphony Claims Returned
+856||+|0|0|p|y|0|n|N|0|image

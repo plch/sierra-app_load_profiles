@@ -1,0 +1,8 @@
+@HEADER=Load PATRON records for Offline Circulation
+@MAXFILES=10
+@MAXBYTES=50000000
+@DIRNAME=marc
+P > PREPROCESS patron records||convpat -V -F%#.dat -O%%.pat
+L > LOAD a MARC file||marc2inn -HL -fp -x -i -so %#.pat
+V > VIEW a MARC file||marcview %#.pat
+Q > QUIT||

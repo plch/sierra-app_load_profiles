@@ -1,0 +1,39 @@
+#Symphony volume load table.
+#To create volume records for DVD titles.
+#Created by mbrady, 8/17/2012.
+|||0|0| | |0|n|G|0|@main="b"
+|||0|0| | |0|n|G|0|@marc="bic"
+|||0|0| | |0|n|G|0|@atab="a"
+|||0|0| | |0|n|G|0|@msg="Volume records will be created"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|@recs="dvdcallnoj"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="tapeb,tapej"
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag="v(944)v"
+|||0|0| | |0|n|G|0|@ov_action="a"
+|||0|0| | |0|n|G|0|@ov_protect="b=V023456789hy(059)y(962)k(970,971)n(972)"
+|||0|0| | |0|n|G|0|@holdsymb=""
+|||0|0| | |0|n|G|0|@locmerge="y"
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@speriod="n"
+#New volume related triggers:
+|||0|0| | |0|n|G|0|@volcreate="y"
+#Bib load lines:
+|245|T|0|0|b|t|0|y|N|0|  |aSymphony generic migration bib record
+944||+|0|0|b|v|0|y|N|0|
+Volume load lines:
+|||0|0| | |0|n|G|0|@link="j:1:951"
+/^951||r|0|0|j|v|0|n|N|1|volume statement
+/^951||y|0|0|j|a|0|n|N|1|volume key

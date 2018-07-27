@@ -1,0 +1,15 @@
+@HEADER=Output MARC Records
+@MAXFILES=50
+@MAXBYTES=10000000000
+@DIRNAME=marc
+B > CREATE file of BIB records only||bib2marc -Fbib -e -E -m -i -C -tu -f %S.out
+C > CREATE file of BIB, ITEM or AUTHORITY records||bib2marc -e -E -m -i -C -tu -f %S.out
+P > CREATE file of PATRON records||bib2marc -Fpatron -e -E -m -i -C -tu -f %S.out
+H > CREATE file of HOLDINGS records||bib2marc -Fcheckin -e -E -m -i -C -tu -f %S.out
+Z > CREATE file of brief bibs & item records for call number cleanup task||bib2marc -Fcallnofix -e -E -m -i -C -tu -f %S.out
+S > SEND file to another system using FTS||xftp -cbinary put %#.out
+V > VIEW a MARC file||marcview -u %#.out
+O > CREATE file of BIB records with OCLC label file||bib2marc -e -E -m -i -O -C -tu -f %S.out
+E > SEND a LABEL file to OCLC using FTS||xftp -cbinary put %#.txt
+L > VIEW an OCLC LABEL file||review -c %#.txt
+Q > QUIT||

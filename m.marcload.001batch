@@ -1,0 +1,10 @@
+@HEADER=001 Batch Match
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get MARC records using FTS||xftp get %S.mbfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.mbfts -o%%.mbmarc
+L > LOAD a MARC file||marc2inn -HL -x -fbsersolnoload -I -i -so %#.mbmarc
+M > View MESSAGE log||review -c marc2inn.log
+V > VIEW a MARC file||marcview %#.mbmarc
+Q > QUIT||

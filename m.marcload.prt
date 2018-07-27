@@ -1,0 +1,8 @@
+@HEADER=Transfer files using FTS
+@MAXFILES=50
+@MAXBYTES=1000000000
+@DIRNAME=marc
+@EXT=.html.p
+F > Send a print file to another system using FTS (.p)||xftp put %#.p
+H > Send a print file to another system using FTS (.html)||xftp put %#.html
+Q > QUIT||

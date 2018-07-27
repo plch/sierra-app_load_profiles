@@ -1,0 +1,43 @@
+#This is an item overlay load table.
+#Used to correct the item call number for bibs with 082 (c-tag) fields.
+#Created by mbrady, 7/12/12.
+|||0|0| | |0|n|G|0|@main="b"
+|||0|0| | |0|n|G|0|@marc="bi"
+|||0|0| | |0|n|G|0|@msg="Item records will be overlaid"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|#com="recs"@recs="itemov_callno"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt=""
+########bib matching
+/^999||t|0|10| | |0|n|G|0|@ov_tag="v(944)v"
+|||0|0| | |0|n|G|0|@ov_action="a"
+|||0|0| | |0|n|G|0|@ov_protect="b=V01F26"
+########item overlay
+/^999||t|0|10|i| |0|n|G|1|@ov_tag="b"
+|||0|0|i| |0|n|G|1|@ov_action="o"
+|||0|0|i| |0|n|G|1|@ov_protect="i=V0123456789adefghijklmnopqrstuvwxyzF58-79,87-88,93-94,97,108-110,127,161-162,264-265"
+#|||0|0| | |0|n|G|0|@holdsymb="049a"
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+#Turned off bib loc updating, 7/12/12:
+|||0|0| | |0|n|G|0|@locmerge="n"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="y"
+|||0|0| | |0|n|G|0|@speriod="n"
+#BIB
+082||+|0|0|b|c|0|y|N|0|
+944||+|0|0|b|v|0|y|N|0|
+#ITEM
+|||0|0| | |0|n|G|0|@link="i:1:949"
+949||g|0|0|i|b|0|n|N|1|item barcode
+949|092|t>a|0|0|i|c|0|y|N|1|%dedup_item_call_norm="y"

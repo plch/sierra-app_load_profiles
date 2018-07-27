@@ -1,0 +1,9 @@
+@HEADER=Load Genre Authority Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/auth
+F > Get MARC records using FTS||xftp get %S.gfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.gfts -o%%.genre
+L > LOAD a MARC file||marc2inn -HL -x -fagenre -i -so %#.genre
+V > VIEW a MARC file||marcview %#.genre
+Q > QUIT||

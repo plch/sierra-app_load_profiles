@@ -1,0 +1,4 @@
+@stop_on_map=true
+YES|y
+NO|n
+.*|-

@@ -1,0 +1,15 @@
+@HEADER=Load Symphony Patron Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/patron
+F > Get file using FTS||xftp get %S.pfts
+#MARC data
+#M > PREPROCESS MARC records||marccopy -u -i%#.pfts -o%%.pat
+#Delimited data
+#Date requires premapping, mbrady, 4/1/12:
+#T > PREPROCESS DELIMITED records||text2marc -t/iiidb/data/t2mtab.patron_symphony -i%#.pfts -o%%.pat
+L > LOAD a MARC file (All except Outreach)||marc2inn -HL -x -fp_sym -i -so %#.pat
+M > LOAD a MARC file (Outreach only)||marc2inn -HL -x -fp_symor -i -so %#.pat
+N > LOAD a MARC file (Comments auxiliary load-attach)||marc2inn -HL -x -fp_symc.attach -i -so -E100000 %#.pat
+V > VIEW a MARC file||marcview %#.pat
+Q > QUIT||

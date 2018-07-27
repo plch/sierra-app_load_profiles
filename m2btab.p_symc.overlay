@@ -1,0 +1,32 @@
+#Auxiliary patron load of Symphony notes.
+#Created by mbrady, 4/1/2012.
+|||0|0| | |0|n|G|0|@main="p"
+|||0|0| | |0|n|G|0|@marc=""
+|||0|0| | |0|n|G|0|@msg="Patron records will be updated"
+/^999||z|0|10| | |0|n|G|0|@recs="p_symc.overlay"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="psymphony"
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag="b"
+#1 match overlay, 0 or 2+ matches reject, mbrady, 4/1/12:
+|||0|0| | |0|n|G|0|@ov_action="u"
+|||0|0| | |0|n|G|0|@ov_protect="p=F43-51,53,54-56,95,96,99,101-105,122-126,158,163,263,268-271,297V01233456789=acdefghijklmnopqrstuvwxyz"
+|||0|0| | |0|n|G|0|@holdsymb=""
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@callnum="nynnn"
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@diac_sub_table="usmarc"
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+#|||0|0| | |0|n|G|0|@busy="n"
+#|||0|0| | |0|n|G|0|@busy_file="busypatrons.pat"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@year_2000="20"
+|||0|0| | |0|n|G|0|@speriod="n"
+030||+|0|0|p|b|0|n|N|0|barcode
+500||+|0|0|p|x|0|n|N|0|note

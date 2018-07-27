@@ -1,0 +1,11 @@
+@HEADER=Bursar's Office - Receive and Process Payment Data
+@MAXFILES=20
+@MAXBYTES=50000000
+@MENULINES=10
+@EXT=.bur.bux
+@DIRNAME=circbatch
+G > GET payment data from bursar's office|Assign what name to file?|xftp -S -x get %S.bur
+P > POST payment data to records|Post which file?|cedit -f18 %#.bur
+V > VIEW a payment data (<name>.bur) file||review %#.bur
+X > View a posting error(<name>.bux) file||review %#.bux
+T > Return error file to bursar's office||xftp -S -x put %s.bux

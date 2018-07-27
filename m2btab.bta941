@@ -1,0 +1,38 @@
+#Symphony bib load table.
+#To add 941 fields to bib records, created by mbrady, 9/5/12.
+|||0|0| | |0|n|G|0|@main="b"
+|||0|0| | |0|n|G|0|@marc="bic"
+|||0|0| | |0|n|G|0|@atab="a"
+|||0|0| | |0|n|G|0|@msg="Bib records will be updated"
+/^997||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^997||z|0|10| | |0|n|G|0|@recs="bta941"
+/^997||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^997||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^997||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^997||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^997||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^997||o|0|20| | |0|n|G|0|#com="dflt"@dflt="tapeb"
+#Symphony catkey is the matchpoint, mbrady, 9/5/12:
+/^997||t|0|10| | |0|n|G|0|#com="ov"@ov_tag="v(944)v"
+#Reject if 0 or 2 or more matches, attach is one match, mbrady, 9/5/12:
+|||0|0| | |0|n|G|0|@ov_action="b"
+|||0|0| | |0|n|G|0|@ov_attach_insert="y(941)"
+|||0|0| | |0|n|G|0|@ov_protect="b=V0123456789c(:d)F26,30"
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+#Check that bib locs are protected from overlay, mbrady, 7/25/12:
+|||0|0| | |0|n|G|0|@locmerge="y"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@speriod="n"
+#Created & cataloged date, created by, shadow marker per Dave M., 3/27/12:
+941||+|0|0|b|y|0|y|N|0|
+#Symphony bib control number, 3/27/12:
+944||+|0|0|b|v|0|y|N|0|

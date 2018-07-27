@@ -1,0 +1,9 @@
+@HEADER=Load Subject Authority Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/auth
+F > Get MARC records using FTS||xftp get %S.sfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.sfts -o%%.sub
+L > LOAD a MARC file||marc2inn -HL -x -fasub -i -so %#.sub
+V > VIEW a MARC file||marcview %#.sub
+Q > QUIT||

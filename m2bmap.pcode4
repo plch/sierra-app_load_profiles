@@ -1,0 +1,12 @@
+@stop_on_map=true
+Montgomery|004
+Campbell|201
+Clermont|002
+Dearborn|100
+Hamilton|000
+Franklin|002
+Butler|001
+Kenton|202
+Warren|005
+Boone|200
+.*|600

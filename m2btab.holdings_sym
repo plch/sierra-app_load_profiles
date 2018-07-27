@@ -1,0 +1,64 @@
+#Load table for Symphony holdings records.
+#Created by mbrady, 4/30/2012.
+|||0|0| | |0|n|G|0|@main="b"
+|||0|0| | |0|n|G|0|@marc="bc"
+|||0|0| | |0|n|G|0|@atab="a"
+|||0|0| | |0|n|G|0|@msg="Holdings records will be created"
+#each serials unit is loaded separately; set initials/password for unit
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|@recs="holdings_sym"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="tapeb,_c"
+/^999||t|0|10|b| |0|n|G|0|#com="ov"@ov_tag="v(944)v"
+|||0|0| | |0|n|G|0|@ov_action="a"
+|||0|0| | |0|n|G|0|@ov_protect="b=V023456789hy(059)y(962)k(970,971)n(972)"
+|||0|0| | |0|n|G|0|@holdsymb=""
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+|||0|0| | |0|n|G|0|@locmerge="y"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="n"
+|||0|0| | |0|n|G|0|@busy_file="busyrecs.marc"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@speriod="n"
+# move MARC tag 004 to MARC tag of old system number, for instance:
+#004|935|%>a|0|0|b|v|0|y|N|0|old system number
+|245|T|0|0|b|t|0|y|N|0|  |aSymphony holdings record
+944||a|0|0|b|v|0|y|N|0|old system number
+|||0|0| | |0|n|G|0|@link="c:1:001"
+#edit varflds before uncommenting this line
+001||%|0|0|c|d|0|y|N|1|old system number
+004-008||%|0|0|c|y|0|y|N|1|
+010||+|0|0|c|y|0|y|N|1|
+014||+|0|0|c|y|0|y|N|1|
+337-338||+|0|0|c|n|0|y|N|1|note
+500-599||+|0|0|c|n|0|y|N|1|note
+841-842||+|0|0|c|n|0|y|N|1|note
+843||+|0|0|c|i|0|y|N|1|identity
+844-845||+|0|0|c|n|0|y|N|1|note
+852||y|0|0|b| |26|n|N|0|%map=("m2bmap.bloc")
+852||y|0|0|c| |40|n|N|1|%map=("m2bmap.iloc")
+#Don't load per Vicki, 7/13/12:
+#852[0123456789].||+|0|0|c|c|0|y|N|1|call number
+#edit varflds before uncommenting this line
+#852 .||+|0|0|c|e|0|y|N|1|item info (monographic holdings only)
+852||Mx|0|0|c|z|0|n|N|1|int note
+852||Mz|0|0|c|n|0|n|N|1|note
+853-855||+|0|0|c|y|0|y|N|1|caption
+856||+|0|0|c|y|0|y|N|1|URL
+863-868||+|0|0|c|h|0|y|N|1|holdings
+#edit varflds before uncommenting this line
+#876-878||+|0|0|c|e|0|y|N|1|item info (monographic holdings only)
+880||+|0|0|c|y|0|y|N|1|
+944||b|0|0|c| |42|n|N|1|vendor code
+944||c|0|0|c|f|0|n|N|1|vendor title #
+944||d|0|0|c| |118|n|N|1|%map=("m2bmap.scode3")

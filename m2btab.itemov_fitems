@@ -1,0 +1,41 @@
+#Item overlay load table for updating floating items.
+#Created by mbrady, 7/11/12.
+|||0|0| | |0|n|G|0|@main="i"
+|||0|0| | |0|n|G|0|@marc="i"
+|||0|0| | |0|n|G|0|@msg="Item records will be overlaid"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|#com="recs"@recs="itemov_fitems"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="itemov"
+########bib matching
+#/^999||t|0|10| | |0|n|G|0|@ov_tag="i(020)"
+#|||0|0| | |0|n|G|0|@ov_action="a"
+#|||0|0| | |0|n|G|0|@ov_protect="b=V01F26"
+########item overlay
+/^999||t|0|10|i| |0|n|G|0|@ov_tag="b"
+#Should have used "u", mbrady, 7/25/12:
+|||0|0|i| |0|n|G|0|@ov_action="o"
+|||0|0|i| |0|n|G|0|@ov_protect="i=V0123456789acdefghijklmnopqrstuvwxyzF58-78,87-88,93-94,97,108-110,127,161-162,264-265"
+#|||0|0| | |0|n|G|0|@holdsymb="049a"
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+#Turned off bib loc updating, 7/12/12:
+|||0|0| | |0|n|G|0|@locmerge="n"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+#|||0|0| | |0|n|G|0|@ldx="907"
+#|||0|0| | |0|n|G|0|@ov_rec_number="r"
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="y"
+|||0|0| | |0|n|G|0|@speriod="n"
+#ITEM
+949||g|0|0|i|b|0|n|N|0|item barcode
+949||z|0|0|i| |79|n|N|0|%map=("m2bmap.iloc")

@@ -1,0 +1,72 @@
+#Symphony item and volume load table.
+#Created by mbrady, 3/27/2012.
+#Modified for gap item load, added :b to @link instruction, mbrady, 7/26/2012.
+|||0|0| | |0|n|G|0|@main="b"
+|||0|0| | |0|n|G|0|@marc="bic"
+|||0|0| | |0|n|G|0|@atab="a"
+|||0|0| | |0|n|G|0|@msg="Item and volume records will be created"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|@recs="item"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="tapeb,tapei,tapej"
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag="v(944)v"
+|||0|0| | |0|n|G|0|@ov_action="a"
+#Why was this here, mbrady, 6/6/12?:
+#|||0|0| | |0|n|G|0|@ov_attach_insert="c"
+|||0|0| | |0|n|G|0|@ov_protect="b=V023456789hy(059)y(962)k(970,971)n(972)"
+|||0|0| | |0|n|G|0|@holdsymb=""
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+|||0|0| | |0|n|G|0|@locmerge="y"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="n"
+|||0|0| | |0|n|G|0|@speriod="n"
+#New volume related triggers:
+|||0|0| | |0|n|G|0|@volcreate="y"
+#Bib load lines:
+|245|T|0|0|b|t|0|y|N|0|  |aSymphony generic migration bib record
+944||+|0|0|b|v|0|y|N|0|
+#Load call number from bib record per Elaine, 6/12/12:
+#949|092|t>a|0|0|b|c|0|y|N|0|%first="y"
+#Item load lines:
+#Added :b before loading file cinci-item-20120621-B.rej.imarc, mbrady, 7/3/12:
+#Readded :b before gap item load, mbrady, 7/27/12:
+|||0|0| | |0|n|G|0|@link="i:1:949:b"
+949||a|0|0|i| |109|n|N|1|number of charges/ytd circ
+949||b|0|0|i| |76|n|N|1|total charges/total checkouts
+949||C|0|0|i| |58|n|N|1|test copy
+949||d|0|0|i| |93|n|N|1|inhouse charges/internal use
+949||e|0|0|i| |60|n|N|1|%map=("m2bmap.icode2")
+949||f|0|0|i| |88|n|N|1|%map=("m2bmap.istatus")
+949||g|0|0|i|b|0|n|N|1|item barcode
+949||h|0|0|i| |62|n|N|1|price
+949||i|0|0|i| |61|n|N|1|%map=("m2bmap.itype")
+949||j|0|0|i| |127|n|N|1|%map=("m2bmap.agency")
+949||k|0|0|i| |77|n|N|1|total renewals
+949||m|0|0|i|x|0|n|N|1|internal note
+949||n|0|0|i|p|0|n|N|1|public note
+949||o|0|0|i|x|0|n|N|1|internal note
+949||r|0|0|i|v|0|n|N|1|volume
+949|092|t>a|0|0|i|c|0|y|N|1|%dedup_item_call_norm="y"
+#For testing incomplete call number fix, mbrady, 7/27/12:
+#949|092|t>a:v>a|0|0|i|c|0|y|N|1|%dedup_item_call="y"
+#949|092|t>a:v>a|0|0|i|c|0|y|N|1|%dedup_item_call_norm="y"
+#Subfield z created by a premap, combo of subfields j & e, mbrady 3/30/12:
+949||z|0|0|i| |79|n|N|1|%map=("m2bmap.iloc")
+949||z|0|0|b| |26|n|N|0|%map=("m2bmap.bloc")
+949||+|0|0|i|a|0|y|N|1|item field
+Volume load lines:
+|||0|0| | |0|n|G|0|@link="j:2:949"
+/^949||r|0|0|j|v|0|n|N|2|volume statement
+/^949||y|0|0|j|a|0|n|N|2|volume key

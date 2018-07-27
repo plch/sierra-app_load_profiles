@@ -1,0 +1,12 @@
+@HEADER=Load Patron Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get file using FTS||xftp get %S.pfts
+#MARC data
+#M > PREPROCESS MARC records||marccopy -u -i%#.pfts -o%%.pat
+#Delimited data
+T > PREPROCESS DELIMITED records||text2marc -t/iiidb/data/t2mtab.patron -i%#.pfts -o%%.pat
+L > LOAD a MARC file||marc2inn -HL -x -fp -i -so %#.pat
+V > VIEW a MARC file||marcview %#.pat
+Q > QUIT||

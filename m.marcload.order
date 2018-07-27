@@ -1,0 +1,9 @@
+@HEADER=Load Bib and Order records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+F > Get MARC records using FTS||xftp get %S.ofts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.ofts -o%%.omarc
+L > LOAD a MARC file||marc2inn -HL -x -forder -i -so %#.omarc
+V > VIEW a MARC file||marcview %#.omarc
+Q > QUIT||

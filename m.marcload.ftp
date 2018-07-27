@@ -1,0 +1,9 @@
+@HEADER=FTP data files
+@MAXFILES=50
+@MAXBYTES=400000000
+@DIRNAME=marc
+F > Get records using FTS||xftp get %S.fts
+S > SEND file to another system using FTS||xftp -cbinary put %#.fts
+V > VIEW a MARC file||marcview -u %#.fts
+W > VIEW a TEXT file||marcview -t %#.fts
+Q > QUIT||

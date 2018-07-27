@@ -1,0 +1,7 @@
+@stop_on_map=true
+CANCELLED|2
+INACTIVE|6
+ACTIVE|1
+CEASED|3
+TITCHG|5
+.*|-

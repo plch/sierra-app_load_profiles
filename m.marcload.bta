@@ -1,0 +1,10 @@
+@HEADER=Load Symphony Bibliographic Records (migration data load)
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/bibitem
+F > Get MARC records using FTS||xftp get %S.bfts
+P > PREPROCESS records loaded via FTS||marccopy -u -i%#.bfts -o%%.marc
+L > LOAD a MARC file (non-acq)||marc2inn -HL -x -fbta -i -so -E100000 %#.marc
+M > LOAD a MARC file (acq)||marc2inn -HL -x -fbta_acq -i -so -E100000 %#.marc
+V > VIEW a MARC file||marcview %#.marc
+Q > QUIT||

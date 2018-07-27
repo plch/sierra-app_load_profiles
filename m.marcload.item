@@ -1,0 +1,11 @@
+@HEADER=Load Symphony Item Records (migration data load)
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc/bibitem
+F > Get MARC records using FTS||xftp get %S.ifts
+#Deactivated because data requires a lot of prep, mbrady, 3/30/12:
+#T > PREPROCESS DELIMITED records||text2marc -t/iiidb/data/t2mtab.item -i%#.ifts -o%%.item
+L > LOAD a MARC file (full record)||marc2inn -HL -x -fitem -i -E2000000 -so %#.imarc
+M > LOAD a MARC file (floating item updates)||marc2inn -HL -x -fitemov_fitems -i -so %#.imarc
+V > VIEW a MARC file||marcview %#.imarc
+Q > QUIT||

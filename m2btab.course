@@ -1,0 +1,42 @@
+|||0|0| | |0|n|G|0|@main="r"
+|||0|0| | |0|n|G|0|@marc=""
+|||0|0| | |0|n|G|0|@atab="a"
+|||0|0| | |0|n|G|0|@msg="Course records will be created"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|@recs="course"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||s|0|30| | |0|n|G|0|#com="ip"@itemprefix=""
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt=""
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag=" "
+|||0|0| | |0|n|G|0|@ov_action="o"
+|||0|0| | |0|n|G|0|@ov_protect="r=V023456789h"
+|||0|0| | |0|n|G|0|@holdsymb=""
+#|||0|0| | |0|n|G|0|@pre_map="m2bpre_map."
+|||0|0| | |0|n|G|0|@locmerge="y"
+#/^949  ||a|0|400| | |0|n|G|0|@comline
+|||0|0| | |0|n|G|0|@callnum="nnnny"
+|||0|0| | |0|n|G|0|@bldmarc=""
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@cdate="y"
+|||0|0| | |0|n|G|0|@speriod="n"
+100||a|0|0|r|p|0|n|N|0|professor
+245||a|0|0|r|r|0|n|N|0|course name
+500||a|0|0|r|n|0|n|N|0|note
+#this field may need to be defined and indexed before loading data
+501||a|0|0|r|6|0|n|N|0|course identifier
+600||a|0|0|r|s|0|n|N|0|password
+856||a|0|0|r|y|0|n|N|0|url
+901||a|0|0|r| |115|n|N|0|code1
+902||a|0|0|r| |116|n|N|0|code2
+903||a|0|0|r| |117|n|N|0|code3
+904||a|0|0|r| |92|n|N|0|location
+905||a|0|0|r| |90|n|N|0|begin date
+906||a|0|0|r| |91|n|N|0|end date

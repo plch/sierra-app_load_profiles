@@ -1,0 +1,8 @@
+@HEADER=Bursar's Office - Create and Output Data
+@MAXFILES=20
+@MAXBYTES=50000000
+@EXT=.out.send
+@DIRNAME=circbatch
+C > CREATE bursar output file (bursar.out)||prcharges -bb -Ib
+S > SORT bursar output file (bursar.send)||sort -t'|' +4 -5 +0n -1 +11 bursar.out > bursar.send
+T > TRANSMIT bursar file (bursar.send)||xftp -S -cbinary put bursar.send

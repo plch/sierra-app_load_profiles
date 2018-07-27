@@ -1,0 +1,48 @@
+#Symphony vendor load table.
+#Created by mbrady, 7/11/2012.
+|||0|0| | |0|n|G|0|@main="v"
+|||0|0| | |0|n|G|0|@marc=""
+|||0|0| | |0|n|G|0|@msg="Symphony vendor records will be created"
+/^999||m|0|12| | |0|n|G|0|#com="ins"@password=""
+/^999||z|0|10| | |0|n|G|0|@recs="vendor_sym"
+/^999||x|0|1| | |0|n|G|0|#com="clsi"@clsi="n"
+/^999||w|0|1| | |0|n|N|0|#com="test"@test="n"
+/^999||v|0|1| | |0|n|N|0|#com="init"@init="n"
+/^999||u|0|1| | |0|n|N|0|#com="disp"@disp="n"
+/^999||o|0|20| | |0|n|G|0|#com="dflt"@dflt="vsymphony"
+/^999||t|0|10| | |0|n|G|0|#com="ov"@ov_tag=" "
+|||0|0| | |0|n|G|0|@ov_action="o"
+|||0|0| | |0|n|G|0|@ov_protect="v=V0123456789c"
+|||0|0| | |0|n|G|0|@diac=""
+|||0|0| | |0|n|G|0|@keep_tilde_caret_grave="y"
+|||0|0| | |0|n|G|0|@leader_utf8="y"
+|||0|0| | |0|n|G|0|@ldx=""
+|||0|0| | |0|n|G|0|@busy="y"
+|||0|0| | |0|n|G|0|@title="n"
+|||0|0| | |0|n|G|0|@speriod="n"
+|||0|0| | |0|n|G|0|@year_2000="50"
+080||a|0|0|v| |138|n|N|0|claimcycle
+#Defined for serial claims, 7/10/2012:
+#081||a|0|0|v| |139|n|N|0|vcode1
+#Defined for edifact, 7/10/2012:
+#082||a|0|0|v| |140|n|N|0|vcode2
+083||a|0|0|v| |141|n|N|0|vcode3
+085||a|0|0|v| |154|n|N|0|discount
+086||a|0|0|v| |155|n|N|0|vendmsg
+087||a|0|0|v| |156|n|N|0|language
+088||a|0|0|v| |157|n|N|0|gir code
+090||a|0|0|v|c|0|n|N|0|%no_trim="y"
+100||+|0|0|v|t|0|n|N|0|vendor name
+150||+|0|0|v|l|0|n|N|0|account number
+200||+|0|0|v|k|0|n|N|0|contact
+230||+|0|0|v|a|0|n|N|0|address1
+235||+|0|0|v|b|0|n|N|0|address2
+300||+|0|0|v|d|0|n|N|0|alt number/code
+400||+|0|0|v|p|0|n|N|0|phone number
+410||+|0|0|v|f|0|n|N|0|fax number
+420||+|0|0|v|e|0|n|N|0|email
+500||+|0|0|v|n|0|n|N|0|note1
+501||+|0|0|v|m|0|n|N|0|note2
+502||+|0|0|v|o|0|n|N|0|note3
+505||+|0|0|v|z|0|n|N|0|special
+856||+|0|0|v|y|0|n|N|0|url

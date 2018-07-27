@@ -1,0 +1,8 @@
+@HEADER=Output Order Records
+@MAXFILES=30
+@MAXBYTES=1000000000
+@DIRNAME=marc
+C > CREATE file of BIB and ORDER records||bib2marc -Fpur -e -E -m -i -C -tu -f %S.pout
+S > SEND file to another system using FTS||xftp -cbinary put %#.pout
+V > VIEW a MARC file||marcview -u %#.pout
+Q > QUIT||

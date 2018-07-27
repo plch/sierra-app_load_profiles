@@ -1,0 +1,55 @@
+@searchpeer=/iiidb/data/searchpeer
+@reset_scope_on_newsearch
+@show_unscoped_links=false
+#@show_linked_course_records=false
+@articles=a ,an ,the ;
+@toc=k:970
+.M 0
+.C**********   SEARCHING RECORDS   **********
+
+C > CALL NO          SEARCH||f|c|
+W > KEYWORDS         SEARCH||f|X|
+A > AUTHOR           SEARCH||f|a|
+T > TITLE            SEARCH||f|t|
+U > AUTHOR/TITLE     SEARCH||f|at|
+S > SUBJECT          SEARCH||f|d|
+O > CONTROL NO       SEARCH||f|o|
+I > STANDARD NO      SEARCH||f|i|
+G > GOV DOC NO       SEARCH||f|g|
+B > BARCODE          SEARCH||f|b|
+R > RECORD NO||f|.|
+E > EXPORT marked records|E|f|-|View Export List
+#X > Change Library Catalog||p||
+#L > Change language||l|XXX
+.MP 1
+W > KEYWORDS||f|X|
+A > AUTHOR||f|a|
+T > TITLE||f|t|
+B > AUTHOR/TITLE||f|at|
+S > SUBJECT||f|d|
+C > CALL NO||f|c|
+
+I > Library INFORMATION|L|s|proginfo -h "LIBRARY INFORMATION" -f /iiidb/data/find.info -q "N > New Search"
+R > RESERVE lists|C|s|resvpro -f1 -r -l2
+E > EXPORT marked records|E|f|-|VIEW Export List
+V > VIEW your circulation record|V|s|cedit -f0 -u
+H > HISTORY of searches done|H|h||
+#X > Change Library Catalog||p||
+#L > Change language||l|XXX
+.#Choose one
+.MP 2
+
+.C CALL NUMBER SEARCHES
+
+L > LIBRARY OF CONGRESS Call Number||f|c|
+N > NEW Search||m|1|
+#
+# quit commands
+#
+# 0 corresponds to no quit option
+.Q
+Q > QUIT|1|q|mainmenu
+Q > QUIT|2|q|echo
+X > DISCONNECT|3|q|echo
+H > HANG UP|4|q|echo
+R > RETURN to the library catalog|5|q|echo

@@ -1,0 +1,324 @@
+#610@(#) m.uoptions 610.1@(#) 05/25/11 15:24:25
+#id(menu #,option)|user(i=>interactive,si=>su interactive)|prompt|op|data|menu
+#  or serial indicator|menu number
+#id: m# => menu (o => option, v => variable option-% in it)
+#    s# => serial (id: b => boolean question, f => prompt if previous qu. is 
+#    false, t => prompt if previous qu. is true, n => no prompt-just action )
+#exclusion number
+#user: i=>interactive,si=>su interactive
+#prompt:What the user sees
+#op: for m or s, o => one choice (dflt), a => all
+#    for other id, a => append, k => user can key, x => exit
+#data: append value
+#menu or searial indicator: m or s
+#menu number: number of next menu or serial
+#next option: i=>in line (dflt), a=>after
+
+@IIISHPROGS
+m|1|1|||Dialin as:
+v|i|4|||%p|a|iiish -u%u|X|
+o|i|4|1||Login|a|iiish|X|
+@IIISHPROGSEND
+
+@TERMPROGS
+m|1|1|||Select Program
+o|i|1|1||OPAC|a|search|X||m|2|
+o|i|1|||Mainmenu|||X||m|8|
+o|i|1|||Gateway|||X||m|20|
+o|i|1|||Reserve Lists|||X||m|9|
+o|s|1|||Login as User|||X||m|4|
+o|s|1|||Key a Program|k|Enter program to invoke : |X|
+o|s|1|||APPROVAL PORT|a|APPROVAL PORT|X|
+o|s|1|||BACKLINK|a|BACKLINK|X|
+o|s|1|||BIB UTILITY PORT|a|BIB UTILITY PORT|X|
+o|s|1|||CONSOLE PORT|a|CONSOLE PORT|X|
+o|s|1|||DIAL-OUT MODEM|a|DIAL-OUT MODEM|X|
+o|s|1|||DIAL-IN MODEM|a|DIAL-IN MODEM|X|
+o|s|1|||ELECTRONIC ORDERING PORT|a|ELECTRONIC ORDERING PORT|X|
+o|s|1|||OTHER MACHINE|a|OTHER MACHINE|X|
+o|s|1|||PURCHASED|a|PURCHASED|X|
+o|s|1|||RESERVED FOR GETTY|a|RESERVED FOR GETTY|X|
+o|s|1|||RLIN INPUT PORT|a|RLIN INPUT PORT|X|
+o|s|1|||SYSTEM PRINTER|a|SYSTEM PRINTER|X|"ALL"|
+o|s|1|||UNUSED AND UNPAID|a|UNUSED AND UNPAID|X|
+o|s|1|||XLINK PORT|a|XLINK PORT|X|
+#
+m|2||||Choose OPAC options|a| -p -o '|
+o|i|2|||Allow "Request item"                     : |n|G|BOOL||
+# o|i||||Allow Self checkout                      : |n|S|BOOL||
+o|i||||Offer to display MARC tags               : |n|T|BOOL||
+o|i||||Allow switch to staff display            : |n|P|BOOL||
+# o|i||||Allow Self checkout                      : |n|S|BOOL||
+o|i||||Allow connect to another database system : |n|D|LOWER:BOOL||m|22|a
+o|i|||!has_export|Offer export capability                  : |n|E|BOOL||
+o|i||||Offer library information                : |n|L|BOOL||
+o|i||||Offer reserve lists                      : |n|C|BOOL||
+o|i||||Offer search history                     : |n|H|BOOL||
+n|i|||||a|'|
+o|i||1||Log searches                             : |a| -a|BOOL||
+t|i||||Offer quit option                        : |||LOWER||m|6|a
+t|i||||Menu                                     : |||LOWER:"DEFAULT"||m|7|a
+o|s||||Laserdisk video                          : |a| -Vf|BOOL||
+#
+m|8||||Choose Mainmenu options|a|mainmenu|
+t|i||1||Quit option   : |||LOWER||m|15|i
+o|i||1||Suppress Time : |a| -a|BOOL|
+o|i||1||Suppress Date : |a| -n|BOOL|
+t|i||1||Mainmenu Type : |||LOWER:"DEFAULT"||m|3|i
+#
+m|3|1|||Type of Mainmenu|
+v|i|1|||%f|a| %m|X|FILELIST|
+#
+m|4|1|||Dialin as:
+v|i|4|||%p|a|iiish -u%u|X|
+o|i|4|1||Login|a|iiish|X|
+#
+m|5|1|||Choose Dialout menu|||
+o|i|1|1||%i|a|%j|X|%i|
+#
+m|6|1|||OPAC Quit menu|a| -q||
+o|i|3|1||NO QUIT|a|00|X|"NO QUIT"|
+o|s|3|||QUIT (to mainmenu-demo option only)|a|11|X|"QUIT TO MAINMENU"|
+o|i|3|||QUIT (logout)|a|22|X|"QUIT"|
+o|i|3|||DISCONNECT (logout)|a|33|X|"DISCONNECT"|
+o|i|3|||HANG UP (logout)|a|44|X|"HANG UP"|
+o|i|3|||Return to catalog (logout)|a|55|X|"RETURN"|
+#
+m|7|1|||OPAC Menus|a| -f|
+v|i|4|||%f|a|%f|X|FILELIST|
+#
+m|15|1|||Mainmenu Quit Options|a| -q||
+o|i|3|1||NO QUIT|a|0|X|"NO QUIT"|
+o|i|3|||QUIT|a|1|X|"QUIT"|
+o|i|3|||DISCONNECT (logout)|a|2|X|"DISCONNECT"|
+o|i|3|||HANG UP (logout)|a|3|X|"HANG UP"|
+o|s|3|||RETURN to Library's Catalog|a|4|X|"RETURN"|
+#
+m|9||||Choose Reserve options|a|resvpro -f1|
+o|i|2|||QUIT|a| -q2|X||
+o|i|2|1||NO QUIT|a| -q3|X||
+o|i|3|||ONE LINE|a| -l1|X||
+o|i|3|1||TWO LINE|a| -l2|X||
+#
+m|20||||Choose Gateway options|a|gway -f|
+o|i|3|1||USE Gateway menu 1|a| m.gway.1|X|
+o|i|3|||USE Gateway menu 2|a| m.gway.2|X|
+o|i|3|||USE Gateway menu 3|a| m.gway.3|X|
+o|i|3|||USE Gateway menu 4|a| m.gway.4|X|
+o|i|3|||USE Gateway menu 5|a| m.gway.5|X|
+o|i||||Select options for OPAC called from GATEWAY|a| --|X||m|2|
+#
+m|22||||Choose Gateway menu|||
+o|i|1|1||Gateway menu 1|a| -Dm.gway.1|X|Menu 1|
+o|i|1|||Gateway menu 2|a| -Dm.gway.2|X|Menu 2|
+o|i|1|||Gateway menu 3|a| -Dm.gway.3|X|Menu 3|
+o|i|1|||Gateway menu 4|a| -Dm.gway.4|X|Menu 4|
+o|i|1|||Gateway menu 5|a| -Dm.gway.5|X|Menu 5|
+@TERMPROGSEND
+
+@USERPROGS
+m|1|1|||Select Program
+o|i|1|1||OPAC|a|search|X||m|2|
+o|i|1|||Mainmenu|||X||m|8|
+o|i|1|||Gateway|||X||m|20|
+o|i|1|||Reserve Lists|||X||m|9|
+o|i|1|||Millennium Acquisitions|a|milacq|X|
+o|i|1|||Millennium Administration|a|miladmin|X|
+o|i|1|||Millennium Cataloging|a|milcat|X|
+o|i|1|||Millennium Circulation|a|milcirc|X|
+o|i|1|||Millennium Control Bar|a|miltoolbar|X|
+o|i|1|||Millennium Serials|a|milser|X|
+o|i|1|||Web Works Selection Lists|a|wwacq|X|
+#o|i|1|||Millennium ILL|a|milill|X|
+#o|i|1|||Millennium Electronic Resource Management|a|milerm|X|
+o|i|1|||Media Management|a|milmedia|X|
+o|i|1|||Web System Administration (View Only)|a|wadmview|X|
+o|i|1|||Web System Administration|a|wadmcust|X|
+o|i|1|||Millennium Scheduler|a|milsched|X|
+o|i|1|||Millennium Patron Web Services|a|milwspatronio|X|
+o|i|1|||NONE|a|NONE|X|
+o|s|1|||Key a Program|k|Enter program to invoke : |X|
+#
+m|2||||Choose OPAC options|a| -p -o '|
+o|i|2|||Allow "Request item"                     : |n|G|BOOL||
+# o|i||||Allow Self checkout                      : |n|S|BOOL||
+o|i||||Offer to display MARC tags               : |n|T|BOOL||
+o|i||||Allow switch to staff display            : |n|P|BOOL||
+# o|i||||Allow Self checkout                      : |n|S|BOOL||
+o|i||||Allow connect to another database system : |n|D|LOWER:BOOL||m|22|a
+o|i|||!has_export|Offer export capability                  : |n|E|BOOL||
+o|i||||Offer library information                : |n|L|BOOL||
+o|i||||Offer reserve lists                      : |n|C|BOOL||
+o|i||||Offer search history                     : |n|H|BOOL||
+n|i|||||a|'|
+o|i||1||Log searches                             : |a| -a|BOOL||
+t|i||||Offer quit option                        : |||LOWER||m|6|a
+t|i||||Menu                                     : |||LOWER:"DEFAULT"||m|7|a
+o|s||||Laserdisk video                          : |a| -Vf|BOOL||
+#
+m|20||||Choose Gateway options|a|gway -f|
+o|i|3|1||USE Gateway menu 1|a| m.gway.1|X|
+o|i|3|||USE Gateway menu 2|a| m.gway.2|X|
+o|i|3|||USE Gateway menu 3|a| m.gway.3|X|
+o|i|3|||USE Gateway menu 4|a| m.gway.4|X|
+o|i|3|||USE Gateway menu 5|a| m.gway.5|X|
+o|i||||Select options for OPAC called from GATEWAY|a| --|X||m|2|
+#
+m|22||||Choose Gateway menu|||
+o|i|1|1||Gateway menu 1|a| -Dm.gway.1|X|Menu 1|
+o|i|1|||Gateway menu 2|a| -Dm.gway.2|X|Menu 2|
+o|i|1|||Gateway menu 3|a| -Dm.gway.3|X|Menu 3|
+o|i|1|||Gateway menu 4|a| -Dm.gway.4|X|Menu 4|
+o|i|1|||Gateway menu 5|a| -Dm.gway.5|X|Menu 5|
+#
+m|8||||Choose Mainmenu options|a|mainmenu|
+t|i||1||Quit option   : |||LOWER||m|15|i
+o|i||1||Suppress Time : |a| -a|BOOL|
+o|i||1||Suppress Date : |a| -n|BOOL|
+t|i||1||Mainmenu Type : |||LOWER:"DEFAULT"||m|3|i
+#
+m|3|1|||Type of Mainmenu|
+v|i|1|||%f|a| %m|X|FILELIST|
+#
+m|4|1|||Choose Dialout menu|||
+o|i|1|1||%i|a|%j|X|%i|
+#  
+m|6|1|||OPAC Quit menu|a| -q||
+o|i|3|1||NO QUIT|a|00|X|"NO QUIT"|
+o|s|3|||QUIT (to mainmenu-demo option only)|a|11|X|"QUIT TO MAINMENU"|
+o|i|3|||QUIT (logout)|a|22|X|"QUIT"|
+o|i|3|||DISCONNECT (logout)|a|33|X|"DISCONNECT"|
+o|i|3|||HANG UP (logout)|a|44|X|"HANG UP"|
+o|i|3|||Return to catalog (logout)|a|55|X|"RETURN"|
+#
+m|7|1|||OPAC Menus|a| -f|
+v|i|4|||%f|a|%f|X|FILELIST|
+#
+m|15|1|||Mainmenu Quit Options|a| -q||
+o|i|3|1||NO QUIT|a|0|X|"NO QUIT"|
+o|i|3|||QUIT|a|1|X|"QUIT"|
+o|i|3|||DISCONNECT (logout)|a|2|X|"DISCONNECT"|
+o|i|3|||HANG UP (logout)|a|3|X|"HANG UP"|
+o|s|3|||RETURN to Library's Catalog|a|4|X|"RETURN"|
+#
+m|9||||Choose Reserve options|a|resvpro -f1|
+o|i|2|||QUIT|a| -q2|X||
+o|i|2|1||NO QUIT|a| -q3|X||
+o|i|3|||ONE LINE|a| -l1|X||
+o|i|3|1||TWO LINE|a| -l2|X||
+@USERPROGSEND
+
+@BAUDS
+m|1|1|||Enter Baud Rate|
+o|i|1|||auto|a|auto|X|
+o|i|1|||50|a|50|X|
+o|i|1|||75|a|75|X|
+o|i|1|||110|a|110|X|
+o|i|1|||134|a|134|X|
+o|i|1|||150|a|150|X|
+o|i|1|||300|a|300|X|
+o|i|1|||600|a|600|X|
+o|i|1|||1200|a|1200|X|
+o|i|1|||2400|a|2400|X|
+o|i|1|||4800|a|4800|X|
+o|i|1|||9600|a|9600|X|
+o|i|1|||19200|a|19200|X|
+o|i|1|||38400|a|38400|X|
+@BAUDSEND
+
+@ACTIONS
+m|1|1|||Enter Action|
+o|i|1|||respawn|a|respawn|X
+o|i|1|||wait|a|wait|X
+o|i|1|||once|a|once|X
+o|i|1|||off|a|off|X
+@ACTIONSEND
+
+# no su entries b/c prt controls that
+@PRTYPES
+m|1|1|||Enter printer type|
+o|i|1|||Null Device|a|N|X|"/dev/null"|
+o|i|1|||Local|a|S|X|"Local"|
+o|i|1|||File Save|a|F|X|"File Save"|
+o|i|1|||Electronic Mail|a|M|X|"Electronic Mail"|
+o|i|1|||Direct System|a|D|X|"Direct System"|
+o|i|1|||Network Printer|a|J|X|"Network Printer"|
+o|i|1|||Pipe|a|P|X|"Pipe"|
+o|i|1|||Queued|a|Q|X|"Queued"|
+o|i|1|||RESTRICTED|a|R|X|"RESTRICTED"|
+@PRTYPESEND
+
+@PRCLASSES
+m|1|1|||Enter printer class|
+o|i|1|||Standard 1|a|1|X|"Standard 1"
+o|i|1|||Standard 2|a|2|X|"Standard 2"
+o|i|1|||Label Printer|a|3|X|"Label Printer"
+o|i|1|||Laser Printer|a|4|X|"Laser Printer"
+o|i|1|||Image Method|a|5|X|"Image Method"
+@PRCLASSESEND
+
+@STTYS
+m|1||||Stty Settings|
+o|i||||IXON|n||X
+n|i|||||a|IXON |
+o|i||||XANY|n|-|X
+n|i|||||a|IXANY |
+o|i|2|||B1200|a|B1200 |X||
+o|i|2|||B2400|a|B2400 |X||
+o|i|2|||B4800|a|B4800 |X||
+o|i|2|1||B9600|a|B9600 |X||
+o|i||1||OPOST|n|-|X
+n|i|||||a|OPOST|
+@STTYSEND
+
+@USERTYPE
+m|1|1|||Enter user type|
+o|i|1|||Standard|a|u|X|"Standard"
+o|i|1|||Additional|a|i|X|"Additional"
+@USERTYPEEND
+
+@ITAB
+#it is not advisable to alter these options
+m|1|1|||Enter Group|
+o|i|1|||Startup|a|0|X|"Startup"
+o|i|1|||Control|a|1|X|"Control"
+o|i|1|||System|a|4|X|"System"
+o|i|1|||Users|a|6|X|"Users"
+o|i|1|||Cron|a|8|X|"Cron"
+o|i|1|||Mystery|a|9|X|"Mystery"
+@ITABEND
+
+@TERMEM
+m|1|1|||Enter Terminal Emulation|
+o|i|1|||AUTO SELECT|a|auto|X|"auto select"|
+o|i|1|||BIG5 CHINESE PC|a|big5|X|"BIG5 CHINESE PC"|
+o|i|1|||CCCII PC|a|cccii|X|"CCCII PC"|
+o|i|1|||HEATHKIT H19|a|h19|X|"HEATHKIT H19"|
+o|i|1|||IBM 3161/3151|a|ibm3161|X|"IBM 3161/3151"|
+o|i|1|||INNOPAC for Windows|a|innwin|X|"INNWIN"|
+o|i|1|||INNOPAC for Windows (640x400)|a|innwin640|X|"INNWIN (640x400)"|
+o|i|1|||PROCOMM/PC emulating vt100 (fully supported)|a|procomm|X|"PROCOMM emulating VT100"|
+o|i|1|||SOFTERM/PC emulating TVI925 (fully supported)|a|isofterm|X|"SOFTERM emulating TVI925"|
+o|i|1|||T160E (fully supported)|a|t160e|X|"INNOVATIVE T160E"|
+o|i|1|||TANDEM|a|tandem|X|"TANDEM"|
+o|i|1|||THAI|a|thai|X|"THAI"|
+o|i|1|||TVI910|a|tvi910|X|"TVI910"|
+o|i|1|||TVI920|a|tvi920|X|"TVI920"|
+o|i|1|||TVI925 (fully supported)|a|tvi925|X|"TVI925"|
+o|i|1|||TVI950|a|tvi950|X|"TVI950"|
+o|i|1|||VT100 No bolding (fully supported)|a|vt100nb|X|"VT100 No Bolding"|
+o|i|1|||VT100 (fully supported)|a|vt100|X|"VT100"|
+o|i|1|||VT510 with Cyrillic display|a|vt510cyr|X|"VT510CYR"|
+o|i|1|||WINDOWS VT100 with Code Page 1250|a|win1250|X|"WIN 1250"|
+o|i|1|||WINDOWS VT100 with Code Page 1251|a|win1251|X|"WIN 1251"|
+o|i|1|||WINDOWS VT100 with Code Page 1252|a|win1252|X|"WIN 1252"|
+o|i|1|||WINDOWS VT100 with Code Page 1254|a|win1254|X|"WIN 1254"|
+o|i|1|||WINDOWS VT100 with Code Page 1255|a|win1255|X|"WIN 1255"|
+o|i|1|||WINDOWS VT100 with Code Page 1256|a|win1256|X|"WIN 1256"|
+o|i|1|||WYSE 30|a|wyse30|X|"WYSE 30"|
+o|i|1|||WYSE 50|a|wyse50|X|"WYSE 50"|
+o|i|1|||WYSE 60|a|wyse60|X|"WYSE 60"|
+o|i|1|||WYSE emulating TVI925 (fully supported)|a|wysetvi925|X|"WYSE/TVI925"|
+o|i|1|||WYSE emulating VT220-7 (fully supported)|a|wysevt220|X|"WYSE/VT220"|
+o|i|1|||UNICODE (UTF8)|a|utf8|X|"UNICODE"|
+@TERMEMEND
