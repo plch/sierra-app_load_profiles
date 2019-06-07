@@ -1,7 +1,11 @@
+#Add aat, mesh, sears - mcb 05/01/2019
 @stop_on_map=true
 @case=true
+aat|
 bidex|
 bisacsh|
 bisacmt|
 bisacrt|
 fast|
+mesh|
+sears|
