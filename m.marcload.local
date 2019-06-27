@@ -6,6 +6,7 @@ F > Get MARC records using FTS||xftp get %S.lfts
 P > PREPROCESS records loaded via FTS||marccopy -u -i%#.lfts -o%%.lmarc
 L > LOAD a MARC file||marc2inn -HL -x -fzzz -I -i -so %#.lmarc
 B > LOAD a patron MARC file (comp card)||marc2inn -HL -x -fpcompcard -I -i -so %#.lmarc
+A > LOAD a MARC file (lucky day items)||marc2inn -HL -x -flditem -I -i -so %#.lmarc
 C > LOAD a MARC file (slow rate)||marc2inn -H"1,0,0" -I -x -fzzz -i -so %#.lmarc
 M > View MESSAGE log||review -c marc2inn.log
 V > VIEW a MARC file||marcview %#.lmarc
