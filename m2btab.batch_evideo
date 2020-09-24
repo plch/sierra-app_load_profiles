@@ -1,5 +1,6 @@
 #for ongoing cataloging (batch interface) - eVideo materials
 #Created by mbrady, 8/20/2012.
+#Modified by MCB genre to 'j', 12/06/2019
 |||0|0| | |0|n|G|0|@main="b"
 |||0|0| | |0|n|G|0|@marc="bic"
 |||0|0| | |0|n|G|0|@atab="a"
@@ -115,8 +116,8 @@ L|| |7|1|b| |29|n|N|0|bib lvl
 # eaudiosubjects ALSO filters out "Doanloadable audio books" and "Audiobooks"
 # then "Doanloadable audio books" and "Audiobooks" are hardcoded here in the l.p.
 # 
-655.[ 0147]||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.evideosubjects")
-|655 7|T|0|0|b|d|0|y|N|0| 7|aInternet videos.|2lcgft
+655.[ 0147]||-w|0|0|b|j|0|y|N|0|%map=("m2bmap.evideosubjects")
+|655 7|T|0|0|b|j|0|y|N|0| 7|aInternet videos.|2lcgft
 #
 656-662||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.subjectfilter")
 69..[ 017]||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.subjectfilter")

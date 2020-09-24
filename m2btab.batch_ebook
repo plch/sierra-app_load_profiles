@@ -1,6 +1,7 @@
 #for ongoing cataloging (batch interface) - eBook materials
 #Created by mbrady, 8/20/2012.
 #modified by djm 10/18/2013
+#Modified by msanders genre to 'j', 8/22/2019
 |||0|0| | |0|n|G|0|@main="b"
 |||0|0| | |0|n|G|0|@marc="bic"
 |||0|0| | |0|n|G|0|@atab="a"
@@ -113,8 +114,8 @@ L|| |7|1|b| |29|n|N|0|bib lvl
 # ebooksubjects used on 655 filters out bidex, etc
 # ebooksubjects ALSO filters out "Electronic books"
 # then "Electronic books." is hardcoded here in the l.p.
-655.[ 0147]||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.ebooksubjects")
-|655 4|T|0|0|b|d|0|y|N|0| 4|aElectronic books.
+655.[ 0147]||-w|0|0|b|j|0|y|N|0|%map=("m2bmap.ebooksubjects")
+|655 4|T|0|0|b|j|0|y|N|0| 4|aElectronic books.
 #
 656-662||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.subjectfilter")
 69..[ 017]||-w|0|0|b|d|0|y|N|0|%map=("m2bmap.subjectfilter")

@@ -2,6 +2,7 @@
 #Created by mbrady, 3/27/2012.
 #Modified for loading holdings records, reject if bib in db, mbrady, 4/27/12.
 #Modified for gap bib load, mbrady, 7/26/12.
+#Modified by msanders genre to 'j', 8/22/2019
 |||0|0| | |0|n|G|0|@main="b"
 |||0|0| | |0|n|G|0|@marc="bic"
 |||0|0| | |0|n|G|0|@atab="a"
@@ -104,7 +105,7 @@ L|| |7|1|b| |29|n|N|0|bib lvl
 651.[ 017]||-w|0|0|b|d|0|y|N|0|
 653||-w|0|0|b|d|0|y|N|0|
 654||-w|0|0|b|d|0|y|N|0|
-655.[ 017]||-w|0|0|b|d|0|y|N|0|
+655.[ 017]||-w|0|0|b|j|0|y|N|0|
 656-662||-w|0|0|b|d|0|y|N|0|
 69..[ 017]||-w|0|0|b|d|0|y|N|0|
 700-720||-w|0|0|b|b|0|y|N|0|

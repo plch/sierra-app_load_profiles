@@ -1,6 +1,7 @@
 #for ongoing cataloging from interactive interface or via Z39.50
 #Z39.50 has its own load table, m2btab.z39.
 #Created by mbrady, 4/1/2012.
+#edited by msanders to index genre in j, 8/22/19
 |||0|0| | |0|n|G|0|@main="b"
 |||0|0| | |0|n|G|0|@marc="bic"
 |||0|0| | |0|n|G|0|@atab="a"
@@ -96,7 +97,7 @@ L|| |6|1|b| |30|n|N|0|mat type
 651.[ 017]||-w|0|0|b|d|0|y|N|0|
 653||-w|0|0|b|d|0|y|N|0|
 654||-w|0|0|b|d|0|y|N|0|
-655.[ 017]||-w|0|0|b|d|0|y|N|0|
+655.[ 017]||-w|0|0|b|j|0|y|N|0|
 656-662||-w|0|0|b|d|0|y|N|0|
 69..[ 017]||-w|0|0|b|d|0|y|N|0|
 700-720||-w|0|0|b|b|0|y|N|0|
